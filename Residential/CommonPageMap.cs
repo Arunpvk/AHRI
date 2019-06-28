@@ -13,6 +13,7 @@ namespace AHRI_Unit_Test_Project.Residential
         public IWebElement SearchProductMenu => Driver.FindElement(By.Id("SearchProduct"));
         public IWebElement ResidentialMenu => Driver.FindElement(By.Id("ui-id-1"));
         public IWebElement AirConditionersandHeatPumpsMenu => Driver.FindElement(By.Id("listSubmenuPgm"));
+
         public string NoResults = "//table[@id='tblResults']/tbody//*[text()='Please conduct a search.']";
 
 
@@ -33,9 +34,11 @@ namespace AHRI_Unit_Test_Project.Residential
 
         internal void VerifyTableResults()
         {
-
             Assert.IsTrue(IsElementVisible(NoResults));
-
+        }
+        internal int SearchResultsTableRowCount()
+        {
+            return Driver.FindElements(By.XPath("//table[@id='tblResults']/tbody/tr")).Count;
         }
     }
 }
