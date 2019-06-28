@@ -36,9 +36,6 @@ namespace AHRI_Unit_Test_Project.Residential
         {
             Assert.IsTrue(IsElementVisible(NoResults));
         }
-        internal int SearchResultsTableRowCount()
-        {
-            return Driver.FindElements(By.XPath("//table[@id='tblResults']/tbody/tr")).Count;
-        }
+        
     }
 }

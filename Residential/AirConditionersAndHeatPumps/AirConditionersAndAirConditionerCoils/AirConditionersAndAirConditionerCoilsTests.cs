@@ -16,8 +16,7 @@ namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.AirCond
         {
             try
             {
-                BaseClass.OpenBrowser();
-                NavigateTo("https://www.ahridirectory.org");
+                BaseClass.OpenAHRIHomePage();
                 var pageMap = new AirConditionersAndAirConditionerCoilsPage();
                 pageMap.QuickSearch();
                 pageMap.VerifyTableResults();

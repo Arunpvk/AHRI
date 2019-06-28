@@ -70,6 +70,7 @@
     <Compile Include="Residential\AirConditionersAndHeatPumps\VariableSpeedMiniSplitAndMultiSplitAirConditioners\VariableSpeedMiniSplitAndMultiSplitAirConditionersPageMap.cs" />
     <Compile Include="Residential\AirConditionersAndHeatPumps\VariableSpeedMiniSplitAndMultiSplitAirConditioners\VariableSpeedMiniSplitAndMultiSplitAirConditionersTests.cs" />
     <Compile Include="Residential\CommonPageMap.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

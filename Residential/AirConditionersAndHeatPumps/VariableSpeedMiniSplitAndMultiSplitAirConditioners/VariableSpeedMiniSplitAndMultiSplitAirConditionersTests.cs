@@ -15,12 +15,11 @@ namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.Variabl
         {
             try
             {
-                BaseClass.OpenBrowser();
-                NavigateTo("https://www.ahridirectory.org");
+                BaseClass.OpenAHRIHomePage();                
                 var pageMap = new VariableSpeedMiniSplitAndMultiSplitAirConditionersPage();
                 pageMap.QuickSearch();
                 pageMap.VerifyTableResults();
-                //Assert.IsTrue(pageMap.SearchResultsTableRowCount() > 1);  If we have results in the table
+                //Assert.IsTrue(Utility.SearchResultsTableRowCount() > 1);  //If we have results in the table
             }
             finally
             {

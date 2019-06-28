@@ -15,17 +15,13 @@ namespace AHRI_Unit_Test_Project
 
         public static IWebDriver Driver = null;
 
-        public void NavigateTo(string url)
-        {
-            Driver.Navigate().GoToUrl(url);
-        }
-
-        public static void OpenBrowser()
+        public static void OpenAHRIHomePage()
         {
             Driver = new ChromeDriver();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
+            Driver.Navigate().GoToUrl("https://www.ahridirectory.org");
         }
     }
 }
