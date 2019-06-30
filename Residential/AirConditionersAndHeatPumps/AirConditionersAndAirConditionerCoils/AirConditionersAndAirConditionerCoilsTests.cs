@@ -1,10 +1,4 @@
-﻿using System;
-using System.Threading;
-using AHRI_Unit_Test_Project.Residential;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
 
 namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.AirConditionersAndAirConditionerCoils
 {
@@ -12,14 +6,28 @@ namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.AirCond
     public class AirConditionersAndAirConditionerCoilsTests : BaseClass
     {
         [Test]
-        public void AirConditionersAndAirConditionerCoilsTest()
+        public void AirConditionersAndAirConditionerCoilsTestQS()
         {
             try
             {
                 BaseClass.OpenAHRIHomePage();
                 var pageMap = new AirConditionersAndAirConditionerCoilsPage();
                 pageMap.QuickSearch();
-                pageMap.VerifyTableResults();
+            }
+            finally
+            {
+                Driver.Quit();
+            }
+        }
+
+        [Test]
+        public void AirConditionersAndAirConditionerCoilsTestAS()
+        {
+            try
+            {
+                BaseClass.OpenAHRIHomePage();
+                var pageMap = new AirConditionersAndAirConditionerCoilsPage();
+                pageMap.AdvancedSearch();
             }
             finally
             {

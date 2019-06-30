@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace AHRI_Unit_Test_Project.Residential
         public IWebElement AirConditionersandHeatPumpsMenu => Driver.FindElement(By.Id("listSubmenuPgm"));
 
         public string NoResults = "//table[@id='tblResults']/tbody//*[text()='Please conduct a search.']";
+        public IWebElement SearchButton => Driver.FindElement(By.Id("btnSearchQTop"));
+        public IWebElement FirstResultInTheTable => Driver.FindElement(By.XPath("//*[@id='tblResults']/tbody/tr[1]/td[1]/a"));
+        public SelectElement ManufacturerType => new SelectElement(Driver.FindElement(By.Id("manufacturertype")));
 
 
 

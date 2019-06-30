@@ -16,8 +16,31 @@ namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.HeatPum
             ResidentialMenu.Click();
             AirConditionersandHeatPumpsMenu.Click();
             HeatPumpsAndHeatPumpCoils.Click();
+            VerifyTableResults();
+            SearchButton.Click();
+            Assert.IsTrue(Utility.SearchResultsTableRowCount() > 1);
+        }
+        internal void AdvancedSearch()
+        {
+            SearchProductMenu.Click();
+            ResidentialMenu.Click();
+            AirConditionersandHeatPumpsMenu.Click();
+            HeatPumpsAndHeatPumpCoils.Click();
+            ManufacturerType.SelectByIndex(1);
+            SearchButton.Click();
+            Assert.IsTrue(Utility.SearchResultsTableRowCount() > 1);
+            Utility.DoesFileExist();
+            FirstResultInTheTable.Click();
+            try
+            {
+                wait.Until(Driver => Utility.DoesFileExist());
+            }
+            catch (Exception)
+            {
+
+                Assert.Fail("Unable to download the file");
+            }
         }
 
-        
     }
 }

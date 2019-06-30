@@ -1,9 +1,4 @@
-﻿using System;
-using System.Threading;
-using AHRI_Unit_Test_Project.Residential;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
 
 namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.VariableSpeedMiniSplitAndMultiSplitAirConditioners
 {
@@ -11,15 +6,27 @@ namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.Variabl
     public class VariableSpeedMiniSplitAndMultiSplitAirConditionersTests : BaseClass
     {
         [Test]
-        public void VariableSpeedMiniSplitAndMultiSplitAirConditionersTest()
+        public void VariableSpeedMiniSplitAndMultiSplitAirConditionersTestQS()
         {
             try
             {
                 BaseClass.OpenAHRIHomePage();                
                 var pageMap = new VariableSpeedMiniSplitAndMultiSplitAirConditionersPage();
-                pageMap.QuickSearch();
-                pageMap.VerifyTableResults();
-                //Assert.IsTrue(Utility.SearchResultsTableRowCount() > 1);  //If we have results in the table
+                pageMap.QuickSearch();                                
+            }
+            finally
+            {
+                Driver.Quit();
+            }
+        }
+        [Test]
+        public void VariableSpeedMiniSplitAndMultiSplitAirConditionersTestAS()
+        {
+            try
+            {
+                BaseClass.OpenAHRIHomePage();
+                var pageMap = new VariableSpeedMiniSplitAndMultiSplitAirConditionersPage();
+                pageMap.AdvancedSearch();
             }
             finally
             {

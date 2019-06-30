@@ -1,10 +1,4 @@
-﻿using System;
-using System.Threading;
-using AHRI_Unit_Test_Project.Residential;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
 
 namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.HeatPumpsandHeatPumpCoils
 {
@@ -12,14 +6,27 @@ namespace AHRI_Unit_Test_Project.Residential.AirConditionersAndHeatPumps.HeatPum
     public class HeatPumpsandHeatPumpCoilsTests : BaseClass
     {
         [Test]
-        public void HeatPumpsandHeatPumpCoilsTest()
+        public void HeatPumpsandHeatPumpCoilsTestQS()
         {
             try
             {
                 BaseClass.OpenAHRIHomePage();
                 var pageMap = new HeatPumpsandHeatPumpCoilsPage();
                 pageMap.QuickSearch();
-                pageMap.VerifyTableResults();
+            }
+            finally
+            {
+                Driver.Quit();
+            }
+        }
+        [Test]
+        public void HeatPumpsandHeatPumpCoilsTestAS()
+        {
+            try
+            {
+                BaseClass.OpenAHRIHomePage();
+                var pageMap = new HeatPumpsandHeatPumpCoilsPage();
+                pageMap.AdvancedSearch();
             }
             finally
             {
